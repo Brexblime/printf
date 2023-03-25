@@ -2,16 +2,15 @@
 #include <stdarg.h>
 #include <unistd.h>
 /**
- * _printf -  that produces output according to a format
- * Return: The number of characters printed
- *	(excluding the null byte used to end output to strings)
+ * _printf_helper - help _printf to print
+ * @format: format
+ * @count: counter
+ * @c: characters
+ * @args: arguments
+ * Return: Nothing
 */
-int _printf(const char *format, ...)
+void _printf_helper(const char *format, int count, char c, va_list args)
 {
-	int count = 0;
-	va_list args;
-
-	va_start(args, format);
 	while (*format != '\0')
 	{
 		if (*format == '%')
@@ -19,7 +18,7 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == 'c')
 			{
-				char c = va_arg(args, int);
+				c = va_arg(args, int);
 				write(1, &c, 1);
 				count++;
 			}
@@ -46,6 +45,24 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
+
+}
+
+/**
+ * _printf -  that produces output according to a format
+ * @format: formater
+ * Return: The number of characters printed
+ *	(excluding the null byte used to end output to strings)
+*/
+int _printf(const char *format, ...)
+{
+	int count = 0;
+	char c;
+	va_list args;
+
+
+	va_start(args, format);
+	_printf_helper(format, count, c, args);
 	va_end(args);
 	return (count);
 }
