@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdarg.h>
+#include <unistd.h>
 /**
  * _printf -  that produces output according to a format
  * Return: The number of characters printed
@@ -18,14 +20,12 @@ int _printf(const char *format, ...)
 			if (*format == 'c')
 			{
 				char c = va_arg(args, int);
-
 				write(1, &c, 1);
 				count++;
 			}
 			else if (*format == 's')
 			{
 				char *s = va_arg(args, char*);
-
 			while (*s != '\0')
 			{
 				write(1, s, 1);
