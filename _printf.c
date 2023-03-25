@@ -60,7 +60,6 @@ int _printf(const char *format, ...)
 	char c;
 	va_list args;
 
-
 	va_start(args, format);
 	_printf_helper(format, count, c, args);
 	va_end(args);
