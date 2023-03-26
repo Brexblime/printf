@@ -1,67 +1,63 @@
 #include "main.h"
-#include <stdarg.h>
-#include <unistd.h>
-/**
- * _printf_helper - help _printf to print
- * @format: format
- * @count: counter
- * @c: characters
- * @args: arguments
- * Return: Nothing
-*/
-void _printf_helper(const char *format, int count, char c, va_list args)
-{
-	while (*format != '\0')
-	{
-		if (*format == '%')
-		{
-			format++;
-			if (*format == 'c')
-			{
-				c = va_arg(args, int);
-				write(1, &c, 1);
-				count++;
-			}
-			else if (*format == 's')
-			{
-				char *s = va_arg(args, char*);
-			while (*s != '\0')
-			{
-				write(1, s, 1);
-				s++;
-				count++;
-			}
-			}
-			else if (*format == '%')
-			{
-				write(1, "%", 1);
-				count++;
-			}
-		}
-		else
-		{
-			write(1, format, 1);
-			count++;
-		}
-		format++;
-	}
 
+/*Those for testing*/
+int print_number(va_list arg)
+{
+	return (0);
+}
+int print_char(va_list arg)
+{
+	_putchar(1);
+	return (0);
 }
 
+
 /**
- * _printf -  that produces output according to a format
- * @format: formater
- * Return: The number of characters printed
- *	(excluding the null byte used to end output to strings)
+ * 
 */
 int _printf(const char *format, ...)
 {
-	int count = 0;
-	char c;
+	int i = 0, j, len = 0;
+
+	match magic[] = {
+		{"%s", print_string},
+		{"%d", print_number}, 
+		{"%c", print_char} 
+	};
+
 	va_list args;
 
 	va_start(args, format);
-	_printf_helper(format, count, c, args);
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+		return (-1);
+	
+Begining:
+	while (format[i] != '\0')
+	{
+		j = 2;
+
+		while (j >= 0)
+		{
+			if (magic[j].formater[0] == format[i] && magic[j].formater[1] == format[i + 1])
+			{
+				len += magic[j].func(args);
+				i = i + 2;
+				goto Begining;
+			}
+			j--;
+		}
+		_putchar(format[i]);
+		len++;
+		i++;
+	}
 	va_end(args);
-	return (count);
+
+	return (len);
+}
+
+int main(void)
+{
+	_printf("Hamza is here %s\n", "Hamza");
+	_printf("Hamza is here %%\n");
+	return (0);
 }
