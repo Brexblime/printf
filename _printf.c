@@ -34,8 +34,8 @@ Beginning:
 			j = 2;
 			while (j >= 0)
 			{
-				if (magic[j].formater[0] == format[i] && 
-						magic[j].formater[1] == format[i + 1]
+				if (magic[j].formater[0] == format[i] 
+				&& magic[j].formater[1] == format[i + 1])
 				{
 					len += magic[j].func(args);
 					i = i + 2;
