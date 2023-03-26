@@ -1,10 +1,6 @@
 #include "main.h"
 
 /*Those for testing*/
-int print_number(va_list arg)
-{
-	return (0);
-}
 int print_char(va_list arg)
 {
 	_putchar(1);
@@ -20,6 +16,7 @@ int _printf(const char *format, ...)
 			{"%s", print_string},
 			{"%d", print_number},
 			{"%c", print_char},
+			{"%i", print_number},
 		};
 
 		va_list args;
@@ -55,5 +52,7 @@ int main(void)
 {
 	_printf("Hamza is here %s\n", "Hamza");
 	_printf("Hamza is here %%\n");
+	_printf("%d", 15);
+	_printf("%i", 23.50);
 	return (0);
 }
