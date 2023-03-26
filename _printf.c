@@ -17,6 +17,7 @@ int _printf(const char *format, ...)
 			{"%d", print_number},
 			{"%i", print_number},
 			{"%c", print_char},
+			{"%%", print_percent},
 		};
 
 		va_list args;
@@ -54,5 +55,7 @@ int main(void)
 	_printf("Hamza is here %%\n");
 	_printf("%d%%\n", 15);
 	_printf("%i\n", 23);
+	_printf("%c\n", "H");
+	_printf("%%");
 	return (0);
 }
