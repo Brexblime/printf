@@ -15,8 +15,8 @@ int _printf(const char *format, ...)
 		match magic[] = {
 			{"%s", print_string},
 			{"%d", print_number},
-			{"%c", print_char},
 			{"%i", print_number},
+			{"%c", print_char},
 		};
 
 		va_list args;
@@ -52,7 +52,7 @@ int main(void)
 {
 	_printf("Hamza is here %s\n", "Hamza");
 	_printf("Hamza is here %%\n");
-	_printf("%d", 15);
-	_printf("%i", 23.50);
+	_printf("%d%%\n", 15);
+	_printf("%i\n", 23);
 	return (0);
 }
