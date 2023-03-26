@@ -16,6 +16,15 @@ struct marcher
 };
 typedef struct marcher match;
 
+	match magic[] = {
+		{"%s", print_string},
+		{"%d", print_number},
+		{"%c", print_char},
+		{"%i", print_int},
+		{"%%", print_percent},
+		{NULL, NULL}
+	};
+
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _strlen(char *str);
