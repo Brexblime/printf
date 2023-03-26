@@ -1,46 +1,59 @@
 #include "main.h"
-/**
- * _printf - custom ptintf function
- * @format: string with format specifier
- * Return: number of characters printed
+
+/*Those for testing*/
+int print_number(va_list arg)
+{
+	return (0);
+}
+int print_char(va_list arg)
+{
+	_putchar(1);
+	return (0);
+}
+/*
 */
 int _printf(const char *format, ...)
 {
-	int i = 0, j = 0, len = 0;
-	va_list args;
+		int i = 0, j, len = 0;
 
-	va_start(args, format);
-	if (format == NULL || (format[i] == '\0')
-		return (-1);
-	while (format[i] != '\0')
-	{
-		if (format[i] == '%')
+		match magic[] = {
+			{"%s", print_string},
+			{"%d", print_number},
+			{"%c", print_char},
+		};
+
+		va_list args;
+
+		va_start(args, format);
+		if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+			return (-1);
+
+Beginning:
+		while (format[i] != '\0')
 		{
-			j = 0;
-			while (magic[j].formater != NULL)
+			j = 2;
+			while (j >= 0)
 			{
-				if (format[i + 1] == magic[j].formater[1])
+				if (magic[j].formater[0] == format[i] && 
+						magic[j].formater[1] == format[i + 1]
 				{
-					len += magic[j].fun(args);
-					i += 2;
-					break;
+					len += magic[j].func(args);
+					i = i + 2;
+					goto Beginning;
 				}
-				j++;
+				j--;
 			}
-			if (magic[j].formater == NULL)
-			{
-				_putchar('%');
-				len++;
-				i++;
-			}
-		}
-		else
-		{
 			_putchar(format[i]);
 			len++;
 			i++;
 		}
-	}
-	va_end(args);
-	return (len);
+		va_end(args);
+		return (len);
+}
+
+int main(void)
+{
+	_printf("Hamza is here %s\n", "Hamza");
+	_printf("Hamza is here %%\n");
+	return (0);
 }
