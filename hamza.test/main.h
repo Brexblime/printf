@@ -29,7 +29,3 @@ int print_hex(va_list);
 int print_heX(va_list);
 
 #endif
-
-
-
-
