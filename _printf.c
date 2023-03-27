@@ -10,12 +10,12 @@ int _printf(const char *format, ...)
 		int i = 0, j, len = 0;
 
 		match magic[] = {
-			{"%s", print_string},
-			{"%c", print_char},
-			{"%%", print_percent},
-			{"%i", print_number},
-			{"%d", print_decimal},
-			{"%b", print_binary}, {"%S", print_S},
+			{"%s", print_string}, {"%S", print_S},
+			{"%c", print_char}, {"%u", print_unsigned},
+			{"%%", print_percent}, {"%o", print_octal},
+			{"%i", print_number}, {"%x", print_hex},
+			{"%d", print_decimal}, {"%X", print_upperhex},
+			{"%b", print_binary},
 		};
 
 		va_list args;
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 Beginning:
 		while (format[i] != '\0')
 		{
-			j = 6;
+			j = 10;
 			while (j >= 0)
 			{
 				if (magic[j].formater[0] == format[i]
