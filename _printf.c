@@ -15,7 +15,7 @@ int _printf(const char *format, ...)
 			{"%%", print_percent}, {"%o", print_octal},
 			{"%i", print_number}, {"%X", print_hex},
 			{"%d", print_decimal}, {"%x", print_upperhex},
-			{"%b", print_binary},
+			{"%b", print_binary}, {"%p", print_pointer},
 		};
 
 		va_list args;
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 Beginning:
 		while (format[i] != '\0')
 		{
-			j = 10;
+			j = 11;
 			while (j >= 0)
 			{
 				if (magic[j].formater[0] == format[i]

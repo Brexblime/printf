@@ -29,4 +29,5 @@ int print_octal(va_list arg);
 int print_hex(va_list arg);
 int print_upperhex(va_list arg);
 int print_S(va_list arg);
+int print_pointer(va_list arg);
 #endif
