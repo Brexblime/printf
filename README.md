@@ -17,3 +17,9 @@
 	[x] - 13: file of the reversed string.
 	[x] - 14: file of the rot13'ed string.
 	[x] - 15: all the above options work well together.
+=======
+# this branch for testing
+
+## you can compile just with this right now:
+	`gcc print_string.c _putchar.c _strlen.c _printf.c`
+
