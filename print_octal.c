@@ -1,42 +1,41 @@
 #include "main.h"
 
 /**
- * print_octal - prints a number in octal format
- * @arg: argument to print
- * Return: number of characters printed
+ * print_octal - prints an unsigned integer in octal notation
+ * @arg: argument list containing the unsigned integer to print
+ * Return: the number of characters printed
 */
 
 int print_octal(va_list arg)
 {
-	unsigned int n = va_arg(arg, unsigned int);
-	unsigned int base = 8, num = n;
-	int i = 0;
+	unsigned int num = va_arg(arg, unsigned int);
+	unsigned int num_copy = num;
+	int len = 0;
 	char *str;
 
-	if (n == 0)
+	if (num == 0)
 		return (_putchar('0'));
-
-	while (num > 0)
+	while (num_copy != 0)
 	{
-		num /= base;
-		i++;
+		num_copy /= 8;
+		len++;
 	}
-
-	str = malloc(sizeof(char) * i + 1);
-	if (!str)
+	str = malloc(sizeof(char) * len);
+	if (str == NULL)
 		return (-1);
-
-	str[i] = '\0';
-	i--;
-	while (n > 0)
+	len--;
+	while (num != 0)
 	{
-		str[i] = (n % base) + '0';
-		n /= base;
-		i--;
+		str[len] = (num % 8) + '0';
+		num /= 8;
+		len--;
 	}
-
-	i = write(1, str, _strlen(str));
+	len = 0;
+	while (str[len] != '\0')
+	{
+		_putchar(str[len]);
+		len++;
+	}
 	free(str);
-
-	return (i);
+	return (len);
 }

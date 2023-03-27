@@ -12,7 +12,7 @@ int print_upperhex(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	unsigned int n = num;
-	int i, j, len = 0;
+	int i, j = 0, len = 0;
 	char hex[100];
 
 	if (n == 0)
