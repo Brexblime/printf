@@ -1,12 +1,14 @@
 # 0x11. C - printf
 
-# TO-DO s:
-	[x] - 0: file of chars, strings, presentage.
-	[x] - 1: file of dicimales, integers. 
-	[x] - 2: file of binary.
-	[x] - 3: file unsigned, octal, hex.
-	[x] - 4: file of Use a local buffer of 1024 chars in order to call write as little as possible.
-	[x] - 5: file that prints the string s.
+chechout the wiki all of it is there!
+
+## what's need to be done:
+	[done] - 0: file of chars, strings, presentage.
+	[done] - 1: file of dicimales, integers. 
+	[done] - 2: file of binary.
+	[working on] - 3: file unsigned, octal, hex.
+	[done] - 4: file of Use a local buffer of 1024 chars in order to call write as little as possible.
+	[done] - 5: file that prints the string s.
 	[x] - 6: file of specifier p.
 	[x] - 7: file of flag characters. +, space and #.
 	[x] - 8: file of length modifires.
@@ -17,9 +19,4 @@
 	[x] - 13: file of the reversed string.
 	[x] - 14: file of the rot13'ed string.
 	[x] - 15: all the above options work well together.
-=======
-# this branch for testing
-
-## you can compile just with this right now:
-	`gcc print_string.c _putchar.c _strlen.c _printf.c`
 
