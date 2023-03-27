@@ -1,11 +1,9 @@
 #include "main.h"
 
-
 /**
-* print_string - this function print a string 
-* @args: arguments passed
-*
-* Return: (length of string)
+ * print_string - Prints a string
+ * @arg: A va_list pointing to the string to print
+ * Return: The number of characters printed
 */
 
 int print_string(va_list arg)
@@ -24,13 +22,13 @@ int print_string(va_list arg)
 			_putchar(string[i]);
 		return (len);
 	}
-	else 
+	else
 	{
 		len = _strlen(string);
-		
+
 		for (i = 0; i < len; i++)
 			_putchar(string[i]);
-		
+
 		return (len);
 	}
 }

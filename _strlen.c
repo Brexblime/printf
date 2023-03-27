@@ -1,7 +1,7 @@
 /**
- * _strlen - a helper function that help me get the length of str
- * @str: string
- * Return: Length of String
+ * _strlen - returns the length of a string
+ * @s: string to be measured
+ * Return: length of the string
 */
 
 int _strlen(char *s)

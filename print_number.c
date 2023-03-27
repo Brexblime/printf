@@ -1,10 +1,11 @@
 #include "main.h"
 
 /**
- * print_int - print a integer
- * @n: The integer to print
+ * print_number - Prints an integer using _putchar
+ * @arg: The integer to print
  * Return: The number of digits printed
-*/ 
+*/
+
 int print_number(va_list arg)
 {
 	int n = va_arg(arg, int);
