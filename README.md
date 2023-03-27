@@ -18,5 +18,6 @@
 	[x] - 12: file of the - flag character.
 	[done] - 13: file of the reversed string.
 	[done] - 14: file of the rot13'ed string.
+	
 	[x] - 15: all the above options work well together.
 
