@@ -30,5 +30,6 @@ int print_hex(va_list arg);
 int print_upperhex(va_list arg);
 int print_S(va_list arg);
 int print_pointer(va_list arg);
+int print_reversed(va_list arg);
 int print_rot13(va_list arg);
 #endif

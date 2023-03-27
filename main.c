@@ -45,5 +45,7 @@ int main(void)
     printf("Len:[%d]\n", len2);
     _printf("Unknown:[%r]\n");
 	_printf("ROT 13 %R\n", "Hamza");
+	_printf("reversed %r\n", "Bahaadine");
     return (0);
 }
+
