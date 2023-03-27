@@ -35,7 +35,7 @@ int print_unsigned(va_list arg)
 		i--;
 	}
 
-	i = write(1, str, _strlen(str));
+	i = write(1, str, _strlen(str) + 1);
 	free(str);
 
 	return (i);
