@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
+
 /**
 * struct marcher - takes a array of arrays with formater and it's function
 *
@@ -14,7 +15,6 @@ typedef struct marcher
 	char *formater;
 	int (*func)(va_list);
 } match;
-
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _strlen(char *str);
