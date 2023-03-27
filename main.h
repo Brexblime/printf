@@ -21,6 +21,7 @@ int _strlen(char *str);
 int print_string(va_list arg);
 int print_char(va_list arg);
 int print_number(va_list arg);
+int print_decimal(va_list arg);
 int print_percent(va_list arg);
 
 #endif
