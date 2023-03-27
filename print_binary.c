@@ -6,27 +6,29 @@
  */
 int print_binary(va_list arg)
 {
-	int i;
-	int flag = 0, count = 0;
+	int flag = 0;
+	int cont = 0;
+	int i, a = 1, b;
 	unsigned int num = va_arg(arg, unsigned int);
-	unsigned int mask;
+	unsigned int p;
 
-	for (i = 31; i >= 0; i--)
+	for (i = 0; i < 32; i++)
 	{
-		mask = 1 << i;
-		if (num & mask)
+		p = ((a << (31 - i)) & num);
+		if (p >> (31 - i))
 			flag = 1;
 		if (flag)
 		{
-			_putchar((num & mask) ? '1' : '0');
-			count++;
+			b = p >> (31 - i);
+			_putchar(b + 48);
+			cont++;
 		}
 	}
-	if (count == 0)
+	if (cont == 0)
 	{
+		cont++;
 		_putchar('0');
-		count++;
 	}
-	return (count);
-}
+	return (cont);
 
+}
