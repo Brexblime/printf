@@ -4,17 +4,16 @@
 #include <stdlib.h>
 #include <stdarg.h>
 /**
-* struct convert - takes a array of arrays with formater and it's function  
+* struct marcher - takes a array of arrays with formater and it's function
 *
-* @format: The formater
+* @formater: The formater
 * @func: The function associated with the formater
 */
-struct marcher
+typedef struct marcher
 {
 	char *formater;
 	int (*func)(va_list);
-};
-typedef struct marcher match;
+} match;
 
 int _printf(const char *format, ...);
 int _putchar(char c);

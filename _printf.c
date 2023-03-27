@@ -1,6 +1,9 @@
 #include "main.h"
 
-/*
+/**
+ * _printf - print a formated character to the stdout
+ * @format: string
+ * Return: length of the printed format
 */
 int _printf(const char *format, ...)
 {
@@ -41,17 +44,4 @@ Beginning:
 		}
 		va_end(args);
 		return (len);
-}
-
-int main(void)
-{
-	char n = 'h';
-
-	_printf("Hamza is here %s\n", "Hamza");
-	_printf("Hamza is here %%\n");
-	_printf("%d\n", 15);
-	_printf("%i\n", 23);
-	_printf("%c\n", n);
-	_printf("%%\n");
-	return (0);
 }
