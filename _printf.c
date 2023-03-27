@@ -1,11 +1,5 @@
 #include "main.h"
 
-/*Those for testing*/
-int print_char(va_list arg)
-{
-	_putchar(1);
-	return (0);
-}
 /*
 */
 int _printf(const char *format, ...)
@@ -14,10 +8,10 @@ int _printf(const char *format, ...)
 
 		match magic[] = {
 			{"%s", print_string},
-			{"%d", print_number},
-			{"%i", print_number},
 			{"%c", print_char},
 			{"%%", print_percent},
+			{"%i", print_number},
+			{"%d", print_number},
 		};
 
 		va_list args;
@@ -29,7 +23,7 @@ int _printf(const char *format, ...)
 Beginning:
 		while (format[i] != '\0')
 		{
-			j = 2;
+			j = 4;
 			while (j >= 0)
 			{
 				if (magic[j].formater[0] == format[i]
@@ -51,11 +45,13 @@ Beginning:
 
 int main(void)
 {
+	char n = 'h';
+
 	_printf("Hamza is here %s\n", "Hamza");
 	_printf("Hamza is here %%\n");
-	_printf("%d%%\n", 15);
+	_printf("%d\n", 15);
 	_printf("%i\n", 23);
-	_printf("%c\n", "H");
-	_printf("%%");
+	_printf("%c\n", n);
+	_printf("%%\n");
 	return (0);
 }
