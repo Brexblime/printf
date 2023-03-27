@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 Beginning:
 		while (format[i] != '\0')
 		{
-			j = 4;
+			j = 5;
 			while (j >= 0)
 			{
 				if (magic[j].formater[0] == format[i]

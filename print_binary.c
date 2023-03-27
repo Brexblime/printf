@@ -6,29 +6,31 @@
  */
 int print_binary(va_list arg)
 {
-	int flag = 0;
-	int cont = 0;
-	int i, a = 1, b;
-	unsigned int num = va_arg(arg, unsigned int);
-	unsigned int p;
+	unsigned int n = va_arg(arg, unsigned int);
+	int i = 0, len = 0;
+	int binary[32];
 
-	for (i = 0; i < 32; i++)
+	if (n == 0)
 	{
-		p = ((a << (31 - i)) & num);
-		if (p >> (31 - i))
-			flag = 1;
-		if (flag)
+		_putchar('0');
+		len++;
+	}
+	else
+	{
+		while (n > 0)
 		{
-			b = p >> (31 - i);
-			_putchar(b + 48);
-			cont++;
+			binary[i] = n % 2;
+			n /= 2;
+			i++;
+		}
+		i--;
+		while (i >= 0)
+		{
+			_putchar(binary[i] + '0');
+			len++;
+			i--;
 		}
 	}
-	if (cont == 0)
-	{
-		cont++;
-		_putchar('0');
-	}
-	return (cont);
 
+	return (len);
 }
