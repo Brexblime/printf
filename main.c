@@ -13,7 +13,11 @@ int main(void)
     int len2;
     unsigned int ui;
     void *addr;
+	char *str = "Hello, Hamza!\n";
+    unsigned char hex_str[] = {'H', 'e', 'l', 'l', 'o', ',', '\0', 0x48, '\n', '\0'};
 
+    _printf("%S\n", str);
+    _printf("%S\n", hex_str);
     len = _printf("Let's try to printf a simple sentence.\n");
     len2 = printf("Let's try to printf a simple sentence.\n");
     ui = (unsigned int)INT_MAX + 1024;
