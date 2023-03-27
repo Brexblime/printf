@@ -23,5 +23,5 @@ int print_char(va_list arg);
 int print_number(va_list arg);
 int print_decimal(va_list arg);
 int print_percent(va_list arg);
-
+int print_binary(va_list arg);
 #endif
