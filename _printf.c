@@ -10,12 +10,10 @@ int _printf(const char *format, ...)
 		int i = 0, j, len = 0;
 
 		match magic[] = {
-			{"%s", print_string}, {"%S", print_S},
-			{"%c", print_char}, {"%u", print_unsigned},
-			{"%%", print_percent}, {"%o", print_octal},
-			{"%i", print_number}, {"%X", print_hex},
-			{"%d", print_decimal}, {"%x", print_upperhex},
-			{"%b", print_binary}, {"%p", print_pointer},
+			{"%s", print_string}, {"%S", print_S}, {"%c", print_char},
+			{"%u", print_unsigned}, {"%%", print_percent}, {"%o", print_octal},
+			{"%i", print_number}, {"%X", print_hex}, {"%d", print_decimal},
+			{"%x", print_upperhex}, {"%b", print_binary}, {"%p", print_pointer},
 		};
 
 		va_list args;
