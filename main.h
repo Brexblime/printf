@@ -15,6 +15,15 @@ typedef struct marcher
 	char *formater;
 	int (*func)(va_list);
 } match;
+typedef struct flags
+{
+    int plus;
+    int space;
+    int hash;
+    int zero;
+    int minus;
+} flags_t;
+
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _strlen(char *str);
